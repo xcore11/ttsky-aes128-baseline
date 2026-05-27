@@ -1,0 +1,62 @@
+# Tiny Tapeout project information
+project:
+  title:        "AES-128 Baseline Hardware Accelerator"
+  author:       "Chin Wei Chun, Foong Yao Le / MSMC"
+  discord:      ""
+  description:  "AES-128 encryption core with byte-load Tiny Tapeout wrapper"
+  language:     "SystemVerilog"
+  clock_hz:     50000000
+
+  # AES is much larger than the default example. 4x2 gives enough area margin.
+  tiles: "4x2"
+
+  # Your top module name must start with "tt_um_".
+  top_module:  "tt_um_aes128_baseline"
+
+  # Source files must be in ./src and listed one per line.
+  source_files:
+    - "tt_um_aes128_baseline.sv"
+    - "aes128_baseline.sv"
+    - "aes_core.sv"
+    - "sbox.sv"
+    - "shift_rows.sv"
+    - "mix_columns.sv"
+    - "add_roundkey.sv"
+    - "sub_bytes.sv"
+    - "aes_round.sv"
+    - "key_expansion.sv"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+pinout:
+  # Inputs
+  ui[0]: "data_in[0]"
+  ui[1]: "data_in[1]"
+  ui[2]: "data_in[2]"
+  ui[3]: "data_in[3]"
+  ui[4]: "data_in[4]"
+  ui[5]: "data_in[5]"
+  ui[6]: "data_in[6]"
+  ui[7]: "data_in[7]"
+
+  # Outputs
+  uo[0]: "data_out[0]"
+  uo[1]: "data_out[1]"
+  uo[2]: "data_out[2]"
+  uo[3]: "data_out[3]"
+  uo[4]: "data_out[4]"
+  uo[5]: "data_out[5]"
+  uo[6]: "data_out[6]"
+  uo[7]: "data_out[7]"
+
+  # Bidirectional pins
+  uio[0]: "load_key"
+  uio[1]: "load_plaintext"
+  uio[2]: "start"
+  uio[3]: "read_ciphertext_next"
+  uio[4]: "clear"
+  uio[5]: "busy"
+  uio[6]: "done"
+  uio[7]: "ready"
+
+# Do not change!
+yaml_version: 6
