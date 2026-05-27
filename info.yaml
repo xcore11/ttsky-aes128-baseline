@@ -8,7 +8,7 @@ project:
   clock_hz:     50000000
 
   # AES is much larger than the default example. 4x2 gives enough area margin.
-  tiles: "6x2"
+  tiles: "8x2"
 
   # Your top module name must start with "tt_um_".
   top_module:  "tt_um_aes128_baseline"
